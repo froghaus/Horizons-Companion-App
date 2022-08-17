@@ -95,8 +95,10 @@ knacks.each do |knack|
 
 	if knack["owned_by"] == "Role"
 		candidate.role = Role.find_by(title: knack["option_for"])
+		candidate.culture = Culture.find_by(title: "No Culture")
 	elsif knack["owned_by"] == "Culture"
 		candidate.culture = Culture.find_by(title: knack["option_for"])
+		candidate.role = Role.find_by(title: "No Role")
 	end
 
 	if !Knack.where(title: candidate.title, role: candidate.role, culture: candidate.culture).first
@@ -139,7 +141,7 @@ items.each do |item|
 		action_type: item["action_type"]
 	)
 
-	if !Item.where(title: candidate.title)
-		item.save
+	if !Item.find_by(title: candidate.title)
+		candidate.save
 	end
 end
