@@ -1,4 +1,6 @@
 class Character < ApplicationRecord
+  mount_uploader :image, ImageUploader
+
 	validates :name, presence: true
 
 	validates :physique, presence: true
