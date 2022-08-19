@@ -146,8 +146,8 @@ items.each do |item|
 	end
 end
 
-if !User.first.characters
-Character.new(
+if !Character.where(user: User.first)
+Character.create(
   role: Role.find_by(title: "Muscle"),
   culture: Culture.find_by(title: "Warrior Culture"),
   user: User.first,
