@@ -1,7 +1,11 @@
 import React from 'react'
 
 export const App = (props) => {
-  return (<h1>Make It So React</h1>)
+  return (
+    <div>
+      Character tiles will be rendered here
+    </div>
+  )
 }
 
 export default App
