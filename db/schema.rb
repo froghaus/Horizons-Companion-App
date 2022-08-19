@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_15_172900) do
+ActiveRecord::Schema.define(version: 2022_08_19_184412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 2022_08_15_172900) do
     t.integer "supplies", default: 0
     t.integer "wealth", default: 0
     t.integer "bonus_to_carry_capacity", default: 0
+    t.string "image"
     t.index ["culture_id"], name: "index_characters_on_culture_id"
     t.index ["passion_id"], name: "index_characters_on_passion_id"
     t.index ["role_id"], name: "index_characters_on_role_id"

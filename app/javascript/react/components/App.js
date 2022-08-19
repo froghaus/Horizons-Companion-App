@@ -1,10 +1,14 @@
 import React from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import CharacterLibrary from './CharacterLibrary'
 
 export const App = (props) => {
   return (
-    <div>
-      Character tiles will be rendered here
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/characters" component={CharacterLibrary} />
+      </Switch>
+    </BrowserRouter>
   )
 }
 
