@@ -56,3 +56,4 @@ gem 'webpacker', '~> 3.3'
 gem "active_model_serializers"
 gem "carrierwave"
 gem "fog-aws"
+gem "font-awesome-sass", "~> 6.1.2"

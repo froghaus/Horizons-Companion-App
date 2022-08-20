@@ -16,25 +16,52 @@
 
  */
 
+
+
+.top-bar-title {
+    margin-top: 0.5em;
+    margin-bottom: auto;
+}
+
+.top-bar-icon {
+    color: #f6f8eb;
+    font-size: 1.5em;
+    margin-top: 0.75em;
+}
+
+.top-bar-icon:hover {
+    color: #f6f8ebce;
+    font-size: 1.5em;
+}
+
+.top-bar-section {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 1em;
+}
+
 .devise-user-tile {
-  /* margin-left: 10%;
-  margin-right: 10%; */
+  margin-left: 10%;
+  margin-right: 10%;
   margin: auto;
 }
 
 .page-header-text {
     text-align: center;
     margin-top: 1.5em;
+    font-family: 'NowRegular';
+    font-weight: normal;
+    font-style: normal;
 }
 
 .horizons-title-font {
-    font-family: 'AveriaRegular';
+    font-family: 'SortsMillGoudyTTRegular';
     font-weight: normal;
     font-style: normal;
 }
 
 .horizons-body-font {
-    font-family: 'SortsMillGoudyTTRegular';
+    font-family: 'NowRegular';
     font-weight: normal;
     font-style: normal;
 }
@@ -44,12 +71,113 @@
 }
 
 .landing-page-tile {
-    border: 1px #c4cea5 solid;
+    border: 1px #000000 solid;
     border-radius: 5px;
     margin-top: 1.5em;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
 }
 
 .landing-page-tile-wrapper {
     margin-left: auto;
     margin-right: auto;
+}
+
+.health-box {
+    background-color: #c3b6b4;
+}
+
+.stress-box {
+    background-color: #b3b7c5;
+}
+
+.rest-pool-box {
+    background-color: #bcc8b3;
+}
+
+.trait-die-box {
+    margin: auto
+}
+
+.character-card-image {
+    object-fit:cover;
+    object-position: 50% 2.5%;
+    width: 100%;
+    height: 17.5em;
+    border-radius: 5%;
+    margin-bottom: 1em;
+    z-index: 1;
+}
+
+.character-card-image-wrapper {
+    text-align: center;
+    margin: auto;
+}
+
+.character-card-text-wrapper {
+    margin-top: auto;
+    margin-bottom: auto;
+    color: black;
+}
+
+.card-header {
+    font-size: 1.5em;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.subtitle {
+    font-style: italic;
+    margin-top: -0.5em;
+    margin-bottom: 1em;
+}
+
+.level-badge {
+    color: #000000;
+    text-align: center;
+    font-size: 1.75em;
+    background-color: #f5f5f5;
+    border: solid #000000 2px;
+    border-radius: 50%;
+    width: 1.75em;
+    margin: auto;
+    margin-top: 0.5em;
+    margin-bottom: -1.5em;
+    z-index: 2;
+}
+
+.character-card-wrapper {
+    background-color: #f5f5f5;
+}
+
+.character-card-wrapper:hover {
+    filter: drop-shadow(2px 3px 1px #2d3b21);
+}
+
+.warning-text {
+    text-align: center;
+    color: #00000093;
+    font-style: italic;
+    font-size: 1.75em;
+    margin-top: 1em;
+    margin: auto;
+}
+
+.button {
+    border-radius: 5px;
+    margin: auto;
+}
+
+.roster-header {
+    margin: auto;
+    margin-top: 2em;
+    margin-bottom: 1.5em;
+    text-align: center;
+}
+
+.landing-page-link {
+    font-size: 1.5em;
 }

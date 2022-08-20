@@ -7,26 +7,30 @@
   <%= csrf_meta_tags %>
   <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/averia" type="text/css"/>
   <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/sorts-mill-goudy" type="text/css"/>
+  <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/now" type="text/css"/>
 </head>
 <body>
   
   <nav class="top-bar">
-    <h1 class="horizons-title-font" ><a class="top-bar-text" href="/">Horizons</a></h1>
+    <h1 class="horizons-title-font top-bar-title" ><a class="top-bar-text" href="/">Horizons</a></h1>
 
     <section class="top-bar-section">
-      <ul class="right">
+      <div class="right">
         <%- if current_user -%>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fa-solid fa-door-open top-bar-icon"></i>
+          <% end %>
         <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <%= link_to new_user_session_path do %>
+            <i class="fa-solid fa-user-plus top-bar-icon"></i>
+          <% end %>
         <%- end -%>
-      </ul>
+      </div>
     </section>
   </nav>
 
   <%- flash.each do |key, value| -%>
-    <div class="flash flash-<%= key %>">
+    <div class="callout horizons-body-font flash flash-<%= key %>">
       <%= value %>
     </div>
   <%- end -%>

@@ -1,19 +1,23 @@
 <div class="grid-container" >
-  <div class="landing-page-tile-wrapper grid-x grid-margin-x grid-padding-x" >
+  <div class="landing-page-tile-wrapper grid-x" >
     
-    <div class="landing-page-tile cell small-11 medium-6" >
+    <div class="landing-page-tile cell small-10 medium-3" >
       <ul>
-        <li class="horizons-body-font" > New Character </li>
-        <li>
-          <%= link_to "Character Roster", characters_path, class: "horizons-body-font" %>
+        <li > 
+          <span class="horizons-body-font landing-page-link"> New Character </span> 
         </li>
-        <li class="horizons-body-font" > Links </li>
+        <li>
+          <%= link_to "Character Roster", characters_path, class: "horizons-body-font landing-page-link" %>
+        </li>
+        <li > 
+          <span class="horizons-body-font landing-page-link"> Links </span> 
+        </li>
       </ul>
     </div>
 
-    <div class="landing-page-tile cell small-11 medium-6" >
+    <div class="landing-page-tile cell small-10 medium-8" >
       <h3 class="horizons-title-font" > About Horizons </h3>
-      <p class="horizons-body-font" > A TRPG system where players use different dice to represent the the strengths and weaknesses of their characters, and gamble with resources to push their limits. </p>
+      <p class="horizons-body-font" > A TRPG system where players use different dice to represent the the strengths and weaknesses of their characters, gain experience by grappling with character flaws, and gamble with resources to push their limits. </p>
     </div>
 
   </div>

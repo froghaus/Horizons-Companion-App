@@ -38,7 +38,7 @@ class Character < ApplicationRecord
 	has_many :items, through: :assigned_items
 	has_many :assigned_misfortunes
 	has_many :misfortunes, through: :assigned_misfortunes
-	has_many :asssigned_anxieties
+	has_many :assigned_anxieties
 	has_many :anxieties, through: :assigned_anxieties
 
 	def trait_dice 
@@ -71,16 +71,35 @@ class Character < ApplicationRecord
     return payload
 	end
 
+  def reaction_dice
+    payload = {
+      grit: (self.grit + self.grit_bonus),
+      reflexes: (self.reflexes + self.reflexes_bonus),
+      resolve: (self.resolve + self.resolve_bonus)
+    }
+
+    return payload
+  end
+
 	def resources
 		payload = {
-			health: (self.base_health + self.bonus_to_health),
-			vitality: 3,
-			willpower: (self.base_willpower + self.bonus_to_willpower),
-			rest_die_pool: (self.base_rest_pool + self.bonus_to_rest_pool)
+			health: self.health,
+			vitality: 2,
+			willpower: self.willpower,
+			rest_die_pool: self.rest_dice_pool
 		}
 
     return payload
 	end
+
+  def current_resources
+    payload = {
+      health: self.current_health,
+      vitality: self.current_vitality,
+      stress: self.current_stress,
+      rest_die_pool: self.current_rest_pool
+    }
+  end
 
 	def speed 
 		speed = 15
@@ -114,12 +133,12 @@ class Character < ApplicationRecord
 	end
 
 	def skill_options
-		self.role.skills
+		self.role.skills - self.skills
 	end
 
 	def knack_options
 		payload = self.role.knacks + self.culture.knacks
-
+    payload -= self.knacks
     return payload
 	end
 
@@ -142,17 +161,10 @@ class Character < ApplicationRecord
     soc = self.social + self.social_bonus
     wit = self.wits + self.wits_bonus
 
-    alpha = [rea, soc, wit]
-    beta = alpha.map do |die|
-      if die > 12
-        die = 12
-      end
-      return die
-    end
+    mental = [rea, soc, wit]
+    mental.delete_at(mental.index(mental.min))
 
-    beta.delete_at(beta.index(beta.min))
-
-    return beta.sum
+    return mental.sum
   end
 
   def rest_dice_pool
@@ -165,5 +177,37 @@ class Character < ApplicationRecord
     end
 
     return pool
+  end
+
+  def inventory
+    payload = {
+      carry_capacity: self.carry_capacity,
+      current_load: self.current_load,
+      wealth: self.wealth,
+      supplies: self.supplies,
+      gear: self.items
+    }
+
+    return payload
+  end
+
+  def text_info
+    payload = {
+      bio: self.bio,
+      description: self.description,
+      proficiencies: self.role.proficiencies,
+      training: self.role.training
+    }
+  end
+
+  def leveling_info
+		next_feature = self.level + 3
+		payload = {
+			level: self.level,
+			experience: self.experience,
+			feature_cost: next_feature
+		}
+
+		return payload
   end
 end
