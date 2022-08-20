@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import CharacterLibrary from './CharacterLibrary'
+import CharacterLibrary from './character-library/CharacterLibrary'
 
 export const App = (props) => {
   return (

@@ -199,4 +199,15 @@ class Character < ApplicationRecord
       training: self.role.training
     }
   end
+
+  def leveling_info
+		next_feature = self.level + 3
+		payload = {
+			level: self.level,
+			experience: self.experience,
+			feature_cost: next_feature
+		}
+
+		return payload
+  end
 end
