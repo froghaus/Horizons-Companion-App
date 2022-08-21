@@ -4,7 +4,7 @@ import CharacterTile from "./CharacterTile"
 const CharacterDisplay = (props) => {
 
 	let characterTiles = props.characters.map(character => {
-		return ( <CharacterTile character={character} /> )
+		return ( <CharacterTile key={character.id} character={character} /> )
 	})
 
 	if (!characterTiles.length) {
