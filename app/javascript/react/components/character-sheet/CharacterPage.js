@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react"
 import PersonalityBar from "./PersonalityBar"
+import ResourcesBar from "./ResourcesBar"
+
 import _ from "lodash"
 
 const CharacterPage = props => {
@@ -25,11 +27,7 @@ const CharacterPage = props => {
 			const response = await fetch(`/api/v1/characters/${character.id}`, {
 				credentials: "same-origin",
 				method: "PATCH",
-				headers: {
-					"Accept": "application/json",
-					"Content-Type": "application/json"
-				},
-				body: JSON.stringify({character: payload})
+				body: payload
 			})
 			if (!response.ok) {
 				const errorMessage = `${response.status} (${response.status.text})`
@@ -51,20 +49,32 @@ const CharacterPage = props => {
 		return null
 	}
 
+	let image
+	if (!character.image.url) {
+		image = { url: "https://thearrivalstore.com/wp-content/uploads/2016/04/default_user_icon.jpg" }
+	} else {
+		image = character.image
+	}
+
 	return (
 		<div> 
 			<PersonalityBar 
 				character={character}
 				updateCharacter={updateCharacter}
 				setCharacter={setCharacter}
-				// image={character.image.url}
-				image={"https://cdn.discordapp.com/attachments/761240859190099978/763543956532625418/armorladycomm.png"}
+				image={image}
 				text_info={character.text_info} 
 				role={character.role} 
 				name={character.name}
 				leveling_info={character.leveling_info}
 				misfortunes={character.misfortunes}
 				anxieties={character.anxieties}
+			/>
+			<ResourcesBar 
+				resources={character.resources}
+				current_resources={character.current_resources}
+				updateCharacter={updateCharacter}
+				character={character}
 			/>
 		</div>
 	)

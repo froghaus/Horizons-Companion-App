@@ -17,7 +17,17 @@ class Api::V1::CharactersController < ApiController
   private
 
   def character_params
-    params.require(:character).permit(:bio, :description, :current_health, :current_stress, :current_rest_pool, :experience, :level)
+    params.permit(
+      :bio,
+      :description,
+      :current_vitality,
+      :current_health,
+      :current_stress,
+      :current_rest_pool,
+      :experience,
+      :level,
+      :image
+    )
   end
 
 end 

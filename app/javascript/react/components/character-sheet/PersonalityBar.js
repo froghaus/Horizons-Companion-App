@@ -1,19 +1,21 @@
 import { faL } from "@fortawesome/free-solid-svg-icons"
-import { set } from "lodash"
+import { property, set } from "lodash"
 import React, { useEffect, useState } from "react"
+import Dropzone from "react-dropzone"
 
 const PersonalityBar = props => {
 	const [expanded, setExpanded] = useState(true)
 	const [editingBio, setEditingBio] = useState(false)
 	const [editingAbout, setEditingAbout] = useState(false)
 	const [editPayload, setEditPayload] = useState({})
+	const [editingImage, setEditingImage] = useState(false)
 
 	useEffect(() => {
 		setEditPayload({
 			bio: props.text_info.bio,
 			description: props.text_info.description,
 			level: props.leveling_info.level,
-			level: props.leveling_info.experience
+			experience: props.leveling_info.experience
 		})
 	}, [props.character])
 
@@ -41,6 +43,14 @@ const PersonalityBar = props => {
 		}
 	}
 
+	const toggleImage = (event) => {
+		if (editingImage) {
+			setEditingImage(false)
+		} else {
+			setEditingImage(true)
+		}
+	}
+
 	const handleChange = (event) => {
 		setEditPayload ({
       ...editPayload,
@@ -50,9 +60,26 @@ const PersonalityBar = props => {
 
 	const handleFormSubmit = (event) => {
 		event.preventDefault()
-		props.updateCharacter(editPayload)
+
+		let payload = new FormData()
+		payload.append("image", editPayload.image)
+		payload.append("bio", editPayload.bio)
+		payload.append("description", editPayload.description)
+		payload.append("level", editPayload.level)
+		payload.append("experience", editPayload.experience)
+		
+		props.updateCharacter(payload)
+
 		setEditingAbout(false)
 		setEditingBio(false)
+		setEditingImage(false)
+	}
+
+	const handleFileUpload = (acceptedFiles) => {
+		setEditPayload({
+			...editPayload,
+			image: acceptedFiles[0]
+		})
 	}
 
 	const growth = () => {
@@ -67,6 +94,37 @@ const PersonalityBar = props => {
 				</li>
 			)
 		})
+	}
+
+	let image
+	if (editingImage) {
+		image = (
+			<form onSubmit={handleFormSubmit} className="character-sheet-image-editing">
+				<div>
+					<label className="horizons-body-text bold"> Upload New Image:
+						<Dropzone onDrop={handleFileUpload}>
+							{({getRootProps, getInputProps}) => (
+								<section>
+									<div {...getRootProps()}>
+										<input {...getInputProps()} />
+										<p className="horizons-body-font">Drag a new image here, or click to upload one locally</p>
+									</div>
+								</section>
+							)}
+						</Dropzone>
+					</label>
+				</div>
+
+				<div className="button-group" >
+					<input type="submit" className="button bold horizons-body-font" value="Upload" />
+					<div onClick={toggleImage} className="button bold horizons-body-font alert" > Cancel </div>
+				</div>
+			</form>
+		)
+	} else {
+		image = (
+				<img onClick={toggleImage} src={props.image.url} className="character-sheet-image" />
+		)
 	}
 
 	let bio
@@ -109,7 +167,6 @@ const PersonalityBar = props => {
 			</div>
 		)
 	}
-
 
 	let about
 	if (editingAbout) {
@@ -157,7 +214,7 @@ const PersonalityBar = props => {
 		section = (
 			<div className="grid-x grid-margin-x callout landing-page-tile char-sheet-element">
 				<div className="cell small-12 large-3 character-card-image-wrapper">
-					<img src={props.image} className="character-sheet-image" />
+					{image}
 				</div>
 
 				<div className="cell small-12 large-5 text-center " >
