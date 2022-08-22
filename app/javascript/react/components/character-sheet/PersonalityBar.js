@@ -62,7 +62,9 @@ const PersonalityBar = props => {
 		event.preventDefault()
 
 		let payload = new FormData()
-		payload.append("image", editPayload.image)
+		if (editPayload.image) {
+			payload.append("image", editPayload.image)
+		}
 		payload.append("bio", editPayload.bio)
 		payload.append("description", editPayload.description)
 		payload.append("level", editPayload.level)

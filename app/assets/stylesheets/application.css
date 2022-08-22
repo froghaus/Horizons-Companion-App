@@ -88,6 +88,10 @@
     background-color: #c3b6b4;
 }
 
+.vitality-box {
+    background-color: #d9cdb3;
+}
+
 .stress-box {
     background-color: #b3b7c5;
 }
@@ -304,4 +308,35 @@ hr {
 
 .character-sheet-image:hover {
     border: 2px #6c8f4f solid;
+}
+
+.resource-icon {
+    font-size: 0.75em;
+}
+
+.resource-box {
+    margin-bottom: 0.75em;
+}
+
+.rounded {
+    margin: 0em;
+    border-radius: 5px;
+}
+
+.resource-box-title {
+    margin-top: 0.75em;
+}
+
+.resource-arrow:hover {
+    width: 2em;
+    background-color: #ffffffa5;
+    border-radius: 5px;
+}
+
+.full-heart {
+    color: #bb4633;
+}
+
+.cracked-heart {
+    color: #bb7a70;
 }
