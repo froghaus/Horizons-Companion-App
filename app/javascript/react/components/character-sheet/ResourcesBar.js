@@ -6,7 +6,6 @@ import { faHeart, faBolt, faBandage, faCaretDown, faCaretUp, faSkull, faHeartCra
 
 library.add(faHeart, faBolt, faBandage, faCaretDown, faCaretUp, faSkull, faHeartCrack);
 
-
 const ResourcesBar = props => {
 	const [expanded, setExpanded] = useState(false)
 	const [editPayload, setEditPayload] = useState({})
@@ -212,7 +211,7 @@ const ResourcesBar = props => {
 		)
 	}	else {
 		section = (
-			<div onClick={toggleExpanded} className="grid-x callout landing-page-tile char-sheet-element">
+			<div onClick={toggleExpanded} className="grid-x callout landing-page-tile char-sheet-element unexpanded">
 				<div className="cell small-3 text-center health-box">
 					{props.current_resources.health}&nbsp;/&nbsp;{props.resources.health} &nbsp;
 					<FontAwesomeIcon icon="fa-solid fa-heart" />

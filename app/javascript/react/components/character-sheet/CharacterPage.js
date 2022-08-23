@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import PersonalityBar from "./PersonalityBar"
 import ResourcesBar from "./ResourcesBar"
+import DiceBar from "./DiceBar"
 
 import _ from "lodash"
 
@@ -75,6 +76,14 @@ const CharacterPage = props => {
 				current_resources={character.current_resources}
 				updateCharacter={updateCharacter}
 				character={character}
+			/>
+			<DiceBar
+				character={character}
+				trait_dice={character.trait_dice}
+				aspect_dice={character.aspect_dice}
+				reaction_dice={character.reaction_dice}
+				speed={character.speed}
+				combat={character.role.combat_die}
 			/>
 		</div>
 	)
