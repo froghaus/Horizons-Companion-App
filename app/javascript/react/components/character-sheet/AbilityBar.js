@@ -3,6 +3,12 @@ import SkillCard from "./SkillCard"
 import KnackCard from "./KnackCard"
 import BackstoryCard from "./BackstoryCard"
 
+import { library } from "@fortawesome/fontawesome-svg-core"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faBookOpenReader, faScrewdriverWrench, faPersonFallingBurst } from "@fortawesome/free-solid-svg-icons"
+
+library.add(faBookOpenReader, faScrewdriverWrench, faPersonFallingBurst);
+
 const AbilityBar = props => {
 	const [knacksExpanded, setKnacksExpanded] = useState(false)
 	const [skillsExpanded, setSkillsExpanded] = useState(false)
@@ -83,7 +89,7 @@ const AbilityBar = props => {
 	} else {
 		backstorySection = (
 			<div onClick={toggleBackstory} className="cell auto text-center about-section-mini horizons-body-font bold expandable" >
-				Backstory
+				Backstory <FontAwesomeIcon icon="fa-solid fa-book-open-reader" />
 			</div>
 		)
 	}
@@ -115,7 +121,7 @@ const AbilityBar = props => {
 	} else {
 		knacksSection = (
 			<div onClick={toggleKnacks} className="cell auto text-center about-section-mini horizons-body-font bold expandable" >
-				Knacks
+				Knacks <FontAwesomeIcon icon="fa-solid fa-screwdriver-wrench" />
 			</div>
 		)
 	}
@@ -150,7 +156,7 @@ const AbilityBar = props => {
 	} else {
 		skillsSection = (
 			<div onClick={toggleSkills} className="cell auto text-center about-section-mini horizons-body-font bold expandable" >
-				Skills
+				Skills <FontAwesomeIcon icon="fa-solid fa-person-falling-burst" />
 			</div>
 		)
 	}

@@ -10,42 +10,48 @@
   <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/now" type="text/css"/>
 </head>
 <body>
-  
-  <nav class="top-bar">
-    <h1 class="horizons-title-font top-bar-title" ><a class="top-bar-text" href="/">Horizons</a></h1>
+  <div class="wrapper" >
+    <nav class="top-bar">
+      <h1 class="horizons-title-font top-bar-title" ><a class="top-bar-text" href="/">Horizons</a></h1>
 
-    <section class="top-bar-section">
-      <div class="right">
-        <%- if current_user -%>
-          <%= link_to destroy_user_session_path, method: :delete do %>
-            <i class="fa-solid fa-door-open top-bar-icon"></i>
-          <% end %>
-        <%- else -%>
-          <%= link_to new_user_session_path do %>
-            <i class="fa-solid fa-user-plus top-bar-icon"></i>
-          <% end %>
-        <%- end -%>
+      <section class="top-bar-section">
+        <div class="right">
+          <%- if current_user -%>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fa-solid fa-door-open top-bar-icon"></i>
+            <% end %>
+          <%- else -%>
+            <%= link_to new_user_session_path do %>
+              <i class="fa-solid fa-user-plus top-bar-icon"></i>
+            <% end %>
+          <%- end -%>
+        </div>
+      </section>
+    </nav>
+
+    <%- flash.each do |key, value| -%>
+      <div class="callout horizons-body-font flash flash-<%= key %>">
+        <%= value %>
       </div>
-    </section>
-  </nav>
-
-  <%- flash.each do |key, value| -%>
-    <div class="callout horizons-body-font flash flash-<%= key %>">
-      <%= value %>
-    </div>
-  <%- end -%>
-
-  <%= yield %>
-
-  <%= javascript_include_tag 'application' %>
-  
-  <%- if Rails.env.development? || Rails.env.test? -%> 
-    <%= javascript_tag do %>
-      window.railsEnv = '<%= Rails.env %>'
     <%- end -%>
-  <%- end -%>
-  <%= javascript_pack_tag 'application' %>
-  
-  <%= yield :extra_footer %>
+
+    <%= yield %>
+
+    <%= javascript_include_tag 'application' %>
+    
+    <%- if Rails.env.development? || Rails.env.test? -%> 
+      <%= javascript_tag do %>
+        window.railsEnv = '<%= Rails.env %>'
+      <%- end -%>
+    <%- end -%>
+    <%= javascript_pack_tag 'application' %>
+    
+    <%= yield :extra_footer %>
+    <div class="push" > </div>
+  </div>
+
+  <footer class="page-footer horizons-body-text text-right">
+    About &nbsp; | &nbsp; <a href="https://github.com/froghaus/Horizons-Companion-App" class="bottom-link" > GitHub </a>
+  </footer>
 </body>
 </html>
