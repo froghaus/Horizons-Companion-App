@@ -474,3 +474,104 @@ hr {
     margin-left: auto;
     margin-right: auto;
 }
+
+.about-section-mini {
+    border: solid 1px #000000;
+    border-radius: 5px;
+    width: 50%;
+    margin-bottom: 0.25em;
+    padding: 0.5em;
+}
+
+.reminder-text {
+    color: #000000e0;
+}
+
+.row-splitter,
+.ability-row {
+    margin-bottom: 10px;
+}
+
+.Misfortune,
+.Reaction {
+    background-color: #a173c6bf;
+}
+
+.Anxiety,
+.Half {
+    background-color: #ddac49bf;
+}
+
+.Full {
+    background-color: #c28f36bf;
+}
+
+.Passion,
+.Passive {
+    background-color: #bb4633bf;
+}
+
+.Free {
+    background-color: #7386c6bf;
+}
+
+.skill-card-title-line {
+    border-bottom: 1px solid #000000;
+    border-right: 1px solid #000000;
+    font-size: 1.15em;
+}
+
+.skill-card-action-line {
+    border-radius: 0px 5px 0px 0px;
+    font-size: 1.1em;
+}
+
+.skill-card-action-line,
+.skill-card-title-line {
+    height: 2em;
+    padding: 10px;
+}
+
+.skill-card-border {
+    border: #000000 1px solid;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.card-section-header {
+    padding-top: 10px;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.expandable {
+    font-size: 1.25em;
+    background-color: #f5f5f5;
+}
+
+.expandable:hover {
+    filter: drop-shadow(2px 3px 0px #2d3b21);
+}
+
+.expandable:hover,
+.card-section-header:hover {
+    background-color: #e2e7de;
+    border-radius: 5px;
+}
+
+.card-text-section {
+    padding: 10px;
+}
+
+.trigger-box {
+    padding: 10px;
+    background-color: #dfdfdf;
+    border-radius: 5px;
+}
+
+.flavor-box {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #9ab9817b;
+    margin-bottom: 5px;
+}

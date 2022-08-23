@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react"
+import _ from "lodash"
+
 import PersonalityBar from "./PersonalityBar"
 import ResourcesBar from "./ResourcesBar"
 import DiceBar from "./DiceBar"
-
-import _ from "lodash"
+import AbilityBar from "./AbilityBar"
 
 const CharacterPage = props => {
 	const [character, setCharacter] = useState({})
@@ -84,6 +85,17 @@ const CharacterPage = props => {
 				reaction_dice={character.reaction_dice}
 				speed={character.speed}
 				combat={character.role.combat_die}
+			/>
+			<AbilityBar
+				character={character}
+				passion={character.passion}
+				misfortunes={character.misfortunes}
+				anxieties={character.anxieties}
+				skills={character.skills}
+				knacks={character.knacks}
+				text_info={character.text_info}
+				combat_die={character.role.combat_die}
+				speed={character.speed}
 			/>
 		</div>
 	)
