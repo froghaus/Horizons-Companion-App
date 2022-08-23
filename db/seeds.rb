@@ -146,35 +146,37 @@ items.each do |item|
 	end
 end
 
-if !Character.where(user: User.first)
-Character.create(
-  role: Role.find_by(title: "Muscle"),
-  culture: Culture.find_by(title: "Warrior Culture"),
-  user: User.first,
-  passion: Passion.find_by(title: "Craftwork"),
-  name: "Derkhu Menghe",
-  physique: 12,
-  motor: 8,
-  social: 10,
-  reason: 8,
-  wits: 4,
-  athletic: 8,
-  convincing: 8,
-  expressive: 8,
-  graceful: 6,
-  intuitive: 8,
-  perceptive: 8,
-  rugged: 8,
-  studious: 6,
-  subtle: 8,
-  tactile: 10,
-  combat: 10,
-  grit: 8,
-  reflexes: 8,
-  resolve: 6,
-  athletic_bonus: 2,
-  rugged_bonus: 2,
-  grit_bonus: 2,
-  current_vitality: 2
-)
+if User.first
+  if !Character.where(user: User.first)
+  Character.create(
+    role: Role.find_by(title: "Muscle"),
+    culture: Culture.find_by(title: "Warrior Culture"),
+    user: User.first,
+    passion: Passion.find_by(title: "Craftwork"),
+    name: "Derkhu Menghe",
+    physique: 12,
+    motor: 8,
+    social: 10,
+    reason: 8,
+    wits: 4,
+    athletic: 8,
+    convincing: 8,
+    expressive: 8,
+    graceful: 6,
+    intuitive: 8,
+    perceptive: 8,
+    rugged: 8,
+    studious: 6,
+    subtle: 8,
+    tactile: 10,
+    combat: 10,
+    grit: 8,
+    reflexes: 8,
+    resolve: 6,
+    athletic_bonus: 2,
+    rugged_bonus: 2,
+    grit_bonus: 2,
+    current_vitality: 2
+  )
+  end
 end
