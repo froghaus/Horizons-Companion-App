@@ -20,10 +20,12 @@ const ResourcesBar = props => {
 	}, [props.character])
 
 	const toggleExpanded = (event) => {
-		if (expanded) {
-			setExpanded(false)
-		} else {
-			setExpanded(true)
+		if (props.character.user_id === props.current_user) {
+			if (expanded) {
+				setExpanded(false)
+			} else {
+				setExpanded(true)
+			}
 		}
 	}
 
@@ -132,7 +134,7 @@ const ResourcesBar = props => {
 		payload.append("current_rest_pool", editPayload.current_rest_pool)
 
 		props.updateCharacter(payload)
-		toggleExpanded()
+		setExpanded(false)
 	}
 
 	let section

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_19_184412) do
+ActiveRecord::Schema.define(version: 2022_08_24_144043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -143,6 +143,14 @@ ActiveRecord::Schema.define(version: 2022_08_19_184412) do
     t.text "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "edition_id", default: 1
+    t.index ["edition_id"], name: "index_cultures_on_edition_id"
+  end
+
+  create_table "editions", force: :cascade do |t|
+    t.string "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "items", force: :cascade do |t|
@@ -206,6 +214,8 @@ ActiveRecord::Schema.define(version: 2022_08_19_184412) do
     t.text "ability_text", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "edition_id", default: 1
+    t.index ["edition_id"], name: "index_roles_on_edition_id"
   end
 
   create_table "skills", force: :cascade do |t|

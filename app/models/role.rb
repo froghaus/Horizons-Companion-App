@@ -13,8 +13,18 @@ class Role < ApplicationRecord
 	has_many :knacks
 	has_many :characters
 
+	belongs_to :edition
+
 	def growth_opportunities
 		return self.growth.split("//")
+	end
+
+	def ability 
+		ability = {
+			title: self.ability_title,
+			text: self.ability_text
+		}
+		return ability
 	end
 
 	def knack_options
