@@ -510,7 +510,8 @@ hr {
     background-color: #bb4633bf;
 }
 
-.Free {
+.Free,
+.Downtime {
     background-color: #7386c6bf;
 }
 
@@ -598,4 +599,93 @@ hr {
 .wrapper {
     min-height: 100%;
     margin-bottom: -50px;
+}
+
+.character-form-header {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+.character-form-body {
+    margin-top: 25px;
+    margin-left: 10%;
+    margin-right: 10%
+}
+
+.form-section {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.input {
+    margin-bottom: 0em;
+}
+
+.navigation-arrows {
+    margin-bottom: 3em;
+}
+
+.nav-arrow-text {
+    font-size: 1.2em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.nav-arrow {
+    font-size: 0.85em;
+}
+
+.error-bar {
+    border-radius: 5px;
+    background-color: #b8655844;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.role-card {
+    margin-bottom: 1em;
+}
+
+.knack-card {
+    width: 100%;
+    margin: auto;
+}
+
+.role-feature-header {
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+}
+
+.growth-list {
+    list-style-type:none;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.selected-option {
+    background-color: #c4cea5;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 1.2em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    text-align: center;
+}
+
+.important-button {
+    font-size: 1.2em;
+}
+
+.role-addendum-box {
+    max-width: 30em;
+    font-size: 1.1em;
+    margin:auto;
+    border: solid #000000 1px;
+    border-radius: 5px;
+    background-color: #c4cea544;
+    margin-bottom: 2em;
+    padding-top: 0.75em;
 }

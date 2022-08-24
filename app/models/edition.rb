@@ -32,4 +32,8 @@ class Edition < ApplicationRecord
 		return [10, 8, 8, 8, 8, 8, 6, 6, 6, 4]
 	end
 
+	def blank_character
+		return Character.new
+	end
+
 end
