@@ -96,7 +96,14 @@ const AbilityBar = props => {
 
 	let knacksSection
 	if (knacksExpanded) {
-		const knacks = props.knacks.map( knack => {
+		let ability = {
+			id: 0,
+			title: props.ability_title,
+			rules_text: props.ability_text,
+			options: null
+		}
+		let all = [ability].concat(props.knacks)
+		const knacks = all.map( knack => {
 			return (
 				<KnackCard
 					key={knack.id}

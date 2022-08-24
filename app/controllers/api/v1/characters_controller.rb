@@ -14,6 +14,10 @@ class Api::V1::CharactersController < ApiController
     render json: Character.find(params[:id])
   end
 
+  def new
+    render json: Edition.first
+  end
+
   private
 
   def character_params

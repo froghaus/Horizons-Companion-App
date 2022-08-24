@@ -17,6 +17,10 @@ passions = CSV.parse(File.read("lib/assets/horizons_tables/passions.csv"), heade
 roles = CSV.parse(File.read("lib/assets/horizons_tables/roles.csv"), headers: true)
 skills = CSV.parse(File.read("lib/assets/horizons_tables/skills.csv"), headers: true)
 
+if !Edition.first
+	Edition.create(title: "Base")
+end
+
 anxieties.each do |anxiety|
 	candidate = Anxiety.new(
 		title: anxiety["title"],

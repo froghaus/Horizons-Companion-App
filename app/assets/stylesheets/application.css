@@ -251,8 +251,8 @@ hr {
 }
 
 .about-body {
-    height: 82.5%;
-    width: 95%;
+    height: 80%;
+    width: 100%;
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -277,7 +277,6 @@ hr {
 
 .about-title-text {
     margin-top: 0.25em;
-    margin-bottom: -0.25em;
 }
 
 .about-header {

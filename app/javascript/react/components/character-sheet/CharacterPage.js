@@ -8,6 +8,7 @@ import AbilityBar from "./AbilityBar"
 
 const CharacterPage = props => {
 	const [character, setCharacter] = useState({})
+	const [currentUser, setCurrentUser] = useState({})
 
 	const fetchCharacter = async () => {
 		try {
@@ -19,6 +20,7 @@ const CharacterPage = props => {
 			}
 			const characterObject = await response.json()
 			setCharacter(characterObject.character)
+			setCurrentUser(characterObject.character.current_user)
 		} catch (error) {
 			console.error(`Error in fetch: ${error.message}`)
 		}
@@ -71,12 +73,14 @@ const CharacterPage = props => {
 				leveling_info={character.leveling_info}
 				misfortunes={character.misfortunes}
 				anxieties={character.anxieties}
+				current_user={currentUser.id}
 			/>
 			<ResourcesBar 
 				resources={character.resources}
 				current_resources={character.current_resources}
 				updateCharacter={updateCharacter}
 				character={character}
+				current_user={currentUser.id}
 			/>
 			<DiceBar
 				character={character}
@@ -96,6 +100,8 @@ const CharacterPage = props => {
 				text_info={character.text_info}
 				combat_die={character.role.combat_die}
 				speed={character.speed}
+				ability_title={character.role.ability_title}
+				ability_text={character.role.ability_text}
 			/>
 		</div>
 	)

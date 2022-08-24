@@ -124,9 +124,15 @@ const PersonalityBar = props => {
 			</form>
 		)
 	} else {
-		image = (
+		if (props.current_user === props.character.user_id) {
+			image = (
 				<img onClick={toggleImage} src={props.image.url} className="character-sheet-image" />
-		)
+			)
+		} else {
+			image = (
+				<img src={props.image.url} className="character-sheet-image" />
+			)
+		}
 	}
 
 	let bio
@@ -156,11 +162,18 @@ const PersonalityBar = props => {
 			</form>
 		)
 	} else {
+		let editable
+		if (props.current_user === props.character.user_id) {
+			editable = (
+				<p onClick={toggleBio} className="cell small-1 text-center horizons-body-font edit-toggle"> edit </p>
+			)
+		}
+
 		bio = (
 			<div className="about-section" >
 				<div className="grid-x about-header" >
 					<h6 className="cell auto text-left horizons-title-font bold about-title-text"> Bio: </h6>
-					<p onClick={toggleBio} className="cell small-1 text-center horizons-body-font edit-toggle"> edit </p>
+					{editable}
 				</div>
 				<hr/>
 				<div className="about-body horizons-body-font" >
@@ -197,11 +210,17 @@ const PersonalityBar = props => {
 			</form>
 		)
 	} else {
+		let editable
+		if (props.current_user === props.character.user_id) {
+			editable = (
+				<p onClick={toggleAbout} className="cell small-1 text-center horizons-body-font edit-toggle"> edit </p>
+			)
+		}
 		about = (
 			<div className="about-section" >
 				<div className="grid-x about-header" >
 					<h6 className="cell auto text-left horizons-title-font bold about-title-text"> About: </h6>
-					<p onClick={toggleAbout} className="cell small-1 text-center horizons-body-font edit-toggle"> edit </p>
+					{editable}
 				</div>
 				<hr/>
 				<div className="about-body horizons-body-font" >
