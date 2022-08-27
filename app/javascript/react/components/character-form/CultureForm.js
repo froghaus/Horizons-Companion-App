@@ -3,17 +3,17 @@ import React, { useState, useEffect } from "react"
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons"
-import RoleCard from "./RoleCard"
-import { set } from "lodash"
+
+import CultureCard from "./CultureCard.js"
 
 library.add(faArrowLeft, faArrowRight)
 
-const RoleForm = props => {
+const CultureForm = props => {
 	const [errors, setErrors] = useState(false)
 
-	useEffect(() => {
-		window.scrollTo(0, 0)
-	  }, [])
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 	
 	const stepForward = event => {
 		if (catchErrors()) {
@@ -28,7 +28,7 @@ const RoleForm = props => {
 	}
 
 	const catchErrors = () => {
-		if (props.formPayload.role_id == null) {
+		if (props.formPayload.culture_id == null) {
 			return false
 		} else {
 			return true
@@ -39,26 +39,20 @@ const RoleForm = props => {
 	if (errors) {
 		errorBar = (
 			<div className="cell small-4 callout horizons-body-font error-bar" >
-				You need to select a role before leaving!
+				You need to select a Culture before continuing!
 			</div>
 		)
 	}
 
-	let roles = props.roles.filter(item => item.title !== "No Role")
-	let roleOptions = roles.map(role => {
+	let cultures = props.cultures.filter(item => item.title !== "No Culture")
+	let cultureOptions = cultures.map(culture => {
 		return (
-			<RoleCard
-				key={role.id}
-				id={role.id}
-				title={role.title}
-				description={role.description}
-				starting_skills={role.starting_skills}
-				ability={role.ability}
-				reaction_bonus={role.reaction_bonus}
-				combat_die={role.combat_die}
-				proficiencies={role.proficiencies}
-				training={role.training}
-				growth_opportunities={role.growth_opportunities}
+			<CultureCard
+				key={culture.id}
+				id={culture.id}
+				title={culture.title}
+				description={culture.description}
+        aspect_bonus_options={culture.aspect_bonus_options}
 				setFormPayload={props.setFormPayload}
 				formPayload={props.formPayload}
 				setCurrentStep={props.setCurrentStep}
@@ -70,17 +64,17 @@ const RoleForm = props => {
 
 	return (
 		<div >
-			<h3 className="horizons-body-font" > What role will you play? </h3>
+			<h3 className="horizons-body-font" > Where do you come from? </h3>
 			<span className="horizons-body-font"> 
-				Perhaps more than any other choice during character creation, your <strong> Role</strong> will determine what your character can do in the game. Which role you pick will determine your starting abilities, and you'll gain access to a suite of <strong> skills </strong> and <strong> knacks </strong> relevant to that role's strengths. <br/>
+				Your <strong> Culture </strong> determines where your character comes from, or perhaps how they perceive themself now. Each Culture has a collection of <strong> knacks </strong> reflecting your position in such a society, and will also improve some of your <i> Aspect </i> dice. <br/>
 			</span>
 			<span className="horizons-body-font"> 
-				&nbsp; Take a look at the roles below and choose one which speaks to you and your character.
+				&nbsp; Take a look at the cultures below and choose one which speaks to you and your character.
 			</span>
 			
 			<div className="form-section">
 				<div className="grid-x grid-margin-x">
-					{roleOptions}
+					{cultureOptions}
 				</div>
 			</div>
 
@@ -105,4 +99,4 @@ const RoleForm = props => {
 	)
 }
 
-export default RoleForm
+export default CultureForm

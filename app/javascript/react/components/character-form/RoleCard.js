@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react"
 import RoleSkillCard from "./RoleSkillCard"
 import RoleKnackCard from "./RoleKnackCard"
+import { delay } from "lodash"
 
 const RoleCard = props => {
 	const [expanded, setExpanded] = useState(false)
@@ -8,8 +9,16 @@ const RoleCard = props => {
 	const selectRole = () => {
 		props.setFormPayload({
 			...props.formPayload,
-			role_id: props.id
+			role_id: props.id,
+			taken_skills: [],
+			role_knack: null,
+			role_title: props.title
 		})
+		delayedStep()
+	}
+
+	const delayedStep = () => {
+		props.setCurrentStep(props.currentStep + 1)
 	}
 
 	let selectButton
@@ -69,7 +78,7 @@ const RoleCard = props => {
 
 	let growth = props.growth_opportunities.map(growth => {
 		return (
-			<li> 
+			<li key={growth}> 
 				{growth}
 			</li>
 		)

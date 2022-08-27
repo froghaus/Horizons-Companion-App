@@ -1,5 +1,6 @@
 class Character < ApplicationRecord
   mount_uploader :image, ImageUploader
+	default_scope { order(name: :asc)}
 
 	validates :name, presence: true
 

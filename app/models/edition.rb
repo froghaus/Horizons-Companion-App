@@ -19,7 +19,7 @@ class Edition < ApplicationRecord
 	def trait_dice
 		options = {
 			option_one: [12, 10, 8, 6, 6],
-			option_two: [12, 10, 8, 8, 6]
+			option_two: [12, 10, 8, 8, 4]
 		}
 		return options
 	end

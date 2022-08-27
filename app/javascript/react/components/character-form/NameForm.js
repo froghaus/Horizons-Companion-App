@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -17,6 +17,7 @@ const NameForm = props => {
 	}
 
 	const stepForward = event => {
+		event.preventDefault()
 		if (catchErrors()) {
 			props.setCurrentStep(props.currentStep + 1)
 		} else {
@@ -46,12 +47,12 @@ const NameForm = props => {
 			<h3 className="horizons-body-font" > Let's get started then...</h3>
 			<span className="horizons-body-font"> First, your character will need a name! Don't worry about writing out their life story just yet, you'll be able to edit their backstory and upload images after the guided character creation. </span>
 			
-			<form className="form-section" >
+			<form className="form-section" onSubmit={stepForward}>
 
-				{errorBar}
-				<label className="horizons-body-font" > 
+				
+				<label className="center-me horizons-body-font" > 
 					<input
-						className="input"
+						className="name-input"
 						name="name"
 						id="name"
 						type="text"
@@ -59,6 +60,8 @@ const NameForm = props => {
 						value={props.formPayload.name}
 					/>
 					Character Name
+					{errorBar}
+
 				</label>
 
 			</form>

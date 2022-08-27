@@ -65,7 +65,10 @@ const AbilityBar = props => {
 		const backstory = backstoryAll.map( element => {
 			return (
 				<BackstoryCard
+					selected={null}
+					selecting={false}
 					key={element.id}
+					id={element.id}
 					type={element.type}
 					title={element.title}
 					passive={element.passive}
@@ -106,7 +109,10 @@ const AbilityBar = props => {
 		const knacks = all.map( knack => {
 			return (
 				<KnackCard
+					selected={null}
+					selecting={false}
 					key={knack.id}
+					id={knack.id}
 					title={knack.title}
 					rules_text={knack.rules_text}
 					options={knack.options}
@@ -138,7 +144,10 @@ const AbilityBar = props => {
 		const skills = props.skills.map( skill => {
 			return (
 				<SkillCard
+					selected={null}
+					selecting={false}
 					key={skill.id}
+					id={skill.id}
 					title={skill.title}
 					action_type={skill.action_type}
 					focus={skill.focus}
@@ -169,8 +178,8 @@ const AbilityBar = props => {
 	}
 
 	return (
-		<div className="callout landing-page-tile char-sheet-element" >
-
+		<div className="char-sheet-element bottom-element" >
+			<hr className="row-splitter"/>
 			<div className="grid-x grid-margin-x ability-row">
 				<div className="cell small-12 medium-9 grid-x grid-margin-x">
 					<div className="cell small-12 medium-6 about-section-mini" >

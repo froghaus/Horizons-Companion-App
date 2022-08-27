@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from "react"
 import _ from "lodash"
+import { Link } from "react-router-dom"
 
 import PersonalityBar from "./PersonalityBar"
 import ResourcesBar from "./ResourcesBar"
 import DiceBar from "./DiceBar"
 import AbilityBar from "./AbilityBar"
+
+import { library } from "@fortawesome/fontawesome-svg-core"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"
+
+library.add(faArrowLeft)
 
 const CharacterPage = props => {
 	const [character, setCharacter] = useState({})
@@ -62,6 +69,9 @@ const CharacterPage = props => {
 
 	return (
 		<div> 
+			<Link to={"/characters"} className="nav-arrow-text edit-toggle horizons-body-font" > 
+				<FontAwesomeIcon className="nav-arrow" icon="fa-solid fa-arrow-left" /> &nbsp; Back to Character Roster
+			</Link>
 			<PersonalityBar 
 				character={character}
 				updateCharacter={updateCharacter}

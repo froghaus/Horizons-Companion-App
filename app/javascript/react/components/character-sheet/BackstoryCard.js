@@ -1,17 +1,43 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 
 const BackstoryCard = props => {
+	const [chosen, setChosen] = useState(false)
+
+	useEffect(() => {
+		setChosen(props.selected)
+	}, [props.selected])
+
+	let selectButton
+	if (props.selecting) {
+		if (chosen) {
+			selectButton =(
+				<div className="cell small-12 text-center button-wrapper">
+					<div id={props.id} onClick={props.selecting} className="button alert bold horizons-body-font skill-select-button select-button">
+						Selected!
+					</div>
+				</div>
+			)
+		} else {
+			selectButton = (
+				<div className="cell small-12 text-center button-wrapper">
+					<div id={props.id} onClick={props.selecting} className="button bold horizons-body-font skill-select-button select-button">
+						Select
+					</div>
+				</div>
+			)
+		}
+	}
 
 	let first = true
 	let flavorText = props.flavor_text.split("//").map( p => {
 		if (first) {
 			first = false
 			return (
-				<span key={p} > {p} <br/> </span>
+				<span key={p} ><i> {p} </i><br/> </span>
 			)
 		} else {
 			return (
-				<span key={p} > &nbsp; {p} <br/> </span>
+				<span key={p} ><i> &nbsp; {p} </i><br/> </span>
 			)
 		}
 	})
@@ -31,6 +57,7 @@ const BackstoryCard = props => {
 					<li> {props.trigger} </li>
 				</ul>
 			</div>
+			{selectButton}
 		</div>
 	)
 }

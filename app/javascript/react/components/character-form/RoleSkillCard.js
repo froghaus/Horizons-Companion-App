@@ -43,13 +43,13 @@ const RoleSkillCard = props => {
 	let actionTypeBox
 	if (props.focus) {
 		actionTypeBox = (
-			<div className={`cell small-6 ${props.action_type} skill-card-action-line horizons-body-font`} > 
+			<div className={`cell small-5 ${props.action_type} skill-card-action-line horizons-body-font`} > 
 				{props.action_type} &nbsp; <i>{"(Focus)"}</i> 
 			</div>
 		)
 	} else {
 		actionTypeBox = (
-			<div className={`cell small-6 ${props.action_type} skill-card-action-line horizons-body-font`} > 
+			<div className={`cell small-5 ${props.action_type} skill-card-action-line horizons-body-font`} > 
 				{props.action_type} 
 			</div>
 		)
@@ -57,7 +57,7 @@ const RoleSkillCard = props => {
 
 	return (
 		<div className="cell small-12 large-6 grid-x skill-card-border">
-			<div className="cell small-6 skill-card-title-line horizons-title-font bold" > {props.title} </div>
+			<div className="cell small-7 skill-card-title-line horizons-title-font bold" > {props.title} </div>
 			{actionTypeBox}
 			{triggerBox}
 			<div className="cell small-12 card-text-section horizons-body-font">

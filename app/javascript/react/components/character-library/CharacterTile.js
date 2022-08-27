@@ -9,13 +9,19 @@ library.add(faHeart, faBolt, faBandage, faPersonRays, faPersonRunning, faHandsha
 
 const CharacterTile = props => {
 
+	let image
+	if (!props.character.image.url) {
+		image = "https://thearrivalstore.com/wp-content/uploads/2016/04/default_user_icon.jpg"
+	} else {
+		image = props.character.image.url
+	}
+
 	return (
 		<div className="landing-page-tile callout cell medium-12 large-6 grid-container character-card-wrapper" >
 			<Link to={`/characters/${props.character.id}`} className="horizons-body-font text-center">
 				<div className="grid-x grid-margin-x character-card-tile" >
 					<div className="cell small-12 medium-5 character-card-image-wrapper">
-						<img src={props.character.image.url} className="character-card-image"/>
-						{/* <img src="https://cdn.discordapp.com/attachments/761240859190099978/763543956532625418/armorladycomm.png" className="character-card-image" /> */}
+						<img src={image} className="character-card-image"/>
 					</div>
 					<div className="cell small-12 medium-7 character-card-text-wrapper">
 						<h4 className="horizons-title-font card-header bold" >{props.character.name}</h4>
