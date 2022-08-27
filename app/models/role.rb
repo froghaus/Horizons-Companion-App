@@ -15,6 +15,8 @@ class Role < ApplicationRecord
 
 	belongs_to :edition
 
+
+
 	def growth_opportunities
 		return self.growth.split("//")
 	end
@@ -32,6 +34,10 @@ class Role < ApplicationRecord
 	end
 
 	def skill_options
-		self.skills
+		self.skills.where(starting: nil)
+	end
+
+	def starting_skills
+		self.skills.where(starting: true)
 	end
 end

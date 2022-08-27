@@ -19,7 +19,7 @@ class Edition < ApplicationRecord
 	def trait_dice
 		options = {
 			option_one: [12, 10, 8, 6, 6],
-			option_two: [12, 10, 8, 8, 6]
+			option_two: [12, 10, 8, 8, 4]
 		}
 		return options
 	end
@@ -30,6 +30,10 @@ class Edition < ApplicationRecord
 
 	def aspect_dice
 		return [10, 8, 8, 8, 8, 8, 6, 6, 6, 4]
+	end
+
+	def blank_character
+		return Character.new
 	end
 
 end

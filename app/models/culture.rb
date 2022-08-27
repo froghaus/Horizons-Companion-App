@@ -16,6 +16,13 @@ class Culture < ApplicationRecord
 		return self.aspect_bonuses.split("//")
 	end
 
+	def aspect_bonus_assignable
+		dice = self.aspect_bonuses.split("//")
+		dice_bonus = dice.map do |die|
+			(die.downcase + "_bonus")
+		end
+	end
+
 	def knack_options
 		self.knacks
 	end

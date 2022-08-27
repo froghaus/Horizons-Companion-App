@@ -20,6 +20,7 @@
 
 .top-bar-title {
     margin-top: 0.5em;
+    margin-left: 15px;
     margin-bottom: auto;
 }
 
@@ -85,11 +86,11 @@
 }
 
 .health-box {
-    background-color: #c3b6b4;
+    background-color: #deada6;
 }
 
 .vitality-box {
-    background-color: #d9cdb3;
+    background-color: #e8cc92;
 }
 
 .stress-box {
@@ -245,6 +246,21 @@
     padding: 0.5em;
 }
 
+.selection-section {
+    border: solid 1px #000000;
+    border-radius: 5px;
+    height: 30em;
+    width: 110%;
+    margin-left: -5%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 0.5em;
+}
+
+.taller {
+    height: 35em;
+}
+
 hr {
     margin-top: 0em;
     margin-bottom: 0.25em;
@@ -255,6 +271,17 @@ hr {
     width: 100%;
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+.selection-body{
+    height: 87.5%;
+    width: 102%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.more-space {
+    height: 89.5%;
 }
 
 .growth-options-div {
@@ -477,7 +504,7 @@ hr {
 .about-section-mini {
     border: solid 1px #000000;
     border-radius: 5px;
-    width: 50%;
+    /* width: 50%; */
     margin-bottom: 0.25em;
     padding: 0.5em;
 }
@@ -502,7 +529,7 @@ hr {
 }
 
 .Full {
-    background-color: #c28f36bf;
+    background-color: #e9981fbf;
 }
 
 .Passion,
@@ -510,7 +537,8 @@ hr {
     background-color: #bb4633bf;
 }
 
-.Free {
+.Free,
+.Downtime {
     background-color: #7386c6bf;
 }
 
@@ -537,6 +565,8 @@ hr {
     margin-bottom: 15px;
 }
 
+.culture-card-header,
+.selection-section-header,
 .card-section-header {
     padding-top: 10px;
     font-size: 1.5em;
@@ -586,6 +616,7 @@ hr {
   color: #f5f5f5;
   padding: 0.75em;
 }
+
   html, body {
     height: 100%;
     margin: 0;
@@ -598,4 +629,140 @@ hr {
 .wrapper {
     min-height: 100%;
     margin-bottom: -50px;
+}
+
+.character-form-header {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+.character-form-body {
+    margin-top: 25px;
+    margin-left: 10%;
+    margin-right: 10%
+}
+
+.form-section {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    width: 100%
+}
+
+.center-me {
+    margin: auto;
+    max-width: 30em;
+}
+
+.name-input {
+    font-size: 1.5em;
+    margin-bottom: 0em;
+}
+
+.navigation-arrows {
+    margin-bottom: 3em;
+}
+
+.nav-arrow-text {
+    font-size: 1.2em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.nav-arrow {
+    font-size: 0.85em;
+}
+
+.error-bar {
+    border-radius: 5px;
+    background-color: #b8655844;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.culture-card,
+.role-card {
+    margin-bottom: 1em;
+}
+
+.knack-card {
+    width: 100%;
+    margin: auto;
+}
+
+.role-feature-header {
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+}
+
+.growth-list {
+    list-style-type:none;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.selected-option {
+    background-color: #c4cea5;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 1.2em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    text-align: center;
+}
+
+.important-button {
+    font-size: 1.2em;
+}
+
+.role-addendum-box {
+    max-width: 30em;
+    font-size: 1.1em;
+    margin:auto;
+    border: solid #000000 1px;
+    border-radius: 5px;
+    background-color: #c4cea544;
+    margin-bottom: 2em;
+    padding-top: 0.75em;
+}
+
+.bottom-element {
+    margin-bottom: 2em;
+    margin-top: 0.5em;
+}
+
+.select-button {
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+
+.skill-select-button {
+    width: 60%;
+    margin: auto;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}
+
+.die-label {
+    font-weight: 600;
+    font-size: 1em;
+}
+
+.dice-array {
+    font-weight: 600;
+    text-align: center;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.final-button {
+    background-color: #ddac49;
+    min-width: 20em;
+}
+
+.die-form-section {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
 }
