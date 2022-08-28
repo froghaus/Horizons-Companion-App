@@ -70,7 +70,6 @@ class Api::V1::CharactersController < ApiController
     )
 
     if character.save
-      character = Character.where(user: user).last
       starting_skills = character.role.skills.where(starting: true)
       starting_skills.each do |skill|
         AssignedSkill.create(character: character, skill: skill)
@@ -83,11 +82,11 @@ class Api::V1::CharactersController < ApiController
       AssignedKnack.create(character: character, knack: Knack.find(data[:role_knack]))
       AssignedKnack.create(character: character, knack: Knack.find(data[:culture_knack]))
       
-      if data[:anxiety_id]
+      if data[:anxiety_id] != "false"
         AssignedAnxiety.create(character: character, anxiety: Anxiety.find(data[:anxiety_id]))
       end
 
-      if data[:misfortune_id]
+      if data[:misfortune_id] != "false"
         AssignedMisfortune.create(character: character, misfortune: Misfortune.find(data[:misfortune_id]))
       end
     end

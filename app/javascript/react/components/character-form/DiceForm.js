@@ -57,13 +57,35 @@ const DiceForm = props => {
 	const checkCharacter = event => {
 		event.preventDefault()
 		if (catchErrors()) {
-      props.setFormPayload({
-        ...props.formPayload,
-        ...dicePayload,
-        combat: combat,
-        [aspectBonusesAssignable.at(0)]: 2,
-        [aspectBonusesAssignable.at(1)]: 2
-      })
+      if (selectedRole.reaction_bonus == "Special") {
+        props.setFormPayload({
+          ...props.formPayload,
+          ...dicePayload,
+          combat: combat,
+          [aspectBonusesAssignable.at(0)]: 2,
+          [aspectBonusesAssignable.at(1)]: 2,
+          grit_bonus: 2,
+          reflexes_bonus: 2,
+          resolve_bonus: 2
+        })
+      } else {
+        let reactionAssignable
+        if (selectedRole.reaction_bonus == "Grit") {
+          reactionAssignable = "grit_bonus"
+        } else if (selectedRole.reaction_bonus == "Reflexes") {
+          reactionAssignable = "reflexes_bonus"
+        } else if (selectedRole.reaction_bonus == "Resolve") {
+          reactionAssignable = "resolve_bonus"
+        }
+        props.setFormPayload({
+          ...props.formPayload,
+          ...dicePayload,
+          combat: combat,
+          [aspectBonusesAssignable.at(0)]: 2,
+          [aspectBonusesAssignable.at(1)]: 2,
+          [reactionAssignable]: 2
+        })
+      }
       setErrors(false)
       setSubmittable(true)
 		} else {
@@ -162,6 +184,13 @@ const DiceForm = props => {
       <div onClick={checkCharacter} className="button horizons-body-font bold final-button"> Check Dice </div>
     )
   }
+
+  let reactionBonus
+	if (selectedRole.reaction_bonus == "Special") {
+		reactionBonus = "all your reaction dice"
+	} else {
+		reactionBonus = `your ${props.reaction_bonus} die`
+	}
 
 	return (
 		<div >			
@@ -429,7 +458,7 @@ const DiceForm = props => {
         <div className="die-form-section">
           <div className="text-center">
             <h3 className="horizons-body-font"> Reaction Dice: </h3>
-            <span className="horizons-body-font"> Your <i>Reaction</i> dice represent your character's ability to respond to situations by holding fast, reacting quickly, or maintaining control. Assign dice however you like from the array below. Additionally, because your character is in <strong>the {selectedRole.title}</strong> role, your <i>{selectedRole.reaction_bonus}</i> die will be <strong>raised one level.</strong> </span>
+            <span className="horizons-body-font"> Your <i>Reaction</i> dice represent your character's ability to respond to situations by holding fast, reacting quickly, or maintaining control. Assign dice however you like from the array below. Additionally, because your character is in <strong>the {selectedRole.title}</strong> role, {reactionBonus} will be <strong>raised one level.</strong> </span>
           </div>
 
           <div className="horizons-body-font dice-array"> {`[ d8, d6, d6 ]`} </div>
