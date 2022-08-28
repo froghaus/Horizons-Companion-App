@@ -71,18 +71,28 @@
     color: #f6f8eb;
 }
 
+.landing-page-alert,
 .landing-page-tile {
     border: 1px #000000 solid;
     border-radius: 5px;
     margin-top: 1.5em;
+    padding: 10px;
+}
+
+.landing-page-alert {
+    background-color: #bcc8b3;
     margin-left: auto;
     margin-right: auto;
-    padding: 10px;
+}
+
+.grey {
+    background-color: #808080;
 }
 
 .landing-page-tile-wrapper {
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 2em;
 }
 
 .health-box {
