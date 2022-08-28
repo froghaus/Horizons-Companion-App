@@ -7,8 +7,16 @@
 </div>
 
 <div class="grid-container" >
-  <div class="landing-page-tile-wrapper grid-x" >
-    <div class="landing-page-tile cell small-10 medium-3" >
+  <div class="landing-page-tile-wrapper grid-x grid-margin-x" >
+   
+    <div class="landing-page-alert cell small-12" >
+      <h3 class="horizons-title-font" > Hiring Look Here! </h3>
+      <p class="horizons-body-font" > Thank you so much for taking the time to look at my app! To view some premade characters, please log in using the credentials below: </p>
+      <span class="horizons-body-font" > <strong> Email: </strong> tester@test.com <br/> </span>
+      <span class="horizons-body-font" > <strong> Password: </strong> password <br/> </span>
+    </div>
+
+    <div class="landing-page-tile cell small-12 medium-shrink" >
       <ul>
         <li > 
           <%= link_to "New Character", characters_new_path, class: "horizons-body-font landing-page-link" %>
@@ -22,7 +30,7 @@
       </ul>
     </div>
 
-    <div class="landing-page-tile cell small-10 medium-8" >
+    <div class="landing-page-tile cell small-12 medium-auto" >
       <h3 class="horizons-title-font" > About Horizons </h3>
       <p class="horizons-body-font" > A TRPG system where players use different dice to represent the the strengths and weaknesses of their characters, gain experience by grappling with character flaws, and gamble with resources to push their limits. </p>
     </div>

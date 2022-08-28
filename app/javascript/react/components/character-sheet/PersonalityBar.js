@@ -250,8 +250,8 @@ const PersonalityBar = props => {
 							{`EXP: ${props.leveling_info.experience}`} 
 						</div>
 
-						<div className="cell small-12 horizons-body-font button bold" >
-							Spend Experience
+						<div className="cell small-12 horizons-body-font button bold grey" >
+							{"(Leveling Coming Soon)"}
 						</div>
 
 						<div className="cell small-12" >
