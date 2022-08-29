@@ -749,8 +749,6 @@ hr {
 }
 
 .skill-select-button {
-    width: 60%;
-    margin: auto;
     margin-bottom: 0.5em;
     margin-top: 0.5em;
 }
@@ -775,4 +773,9 @@ hr {
 .die-form-section {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
+}
+
+.aspect-bonus-wrapper {
+    max-width: 30em;
+    margin: auto;
 }

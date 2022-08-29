@@ -10,7 +10,7 @@ const AspectBonusClickable = props => {
   let selectButton
   if (chosen) {
     selectButton =(
-      <div id={props.assignable} className="button alert bold horizons-body-font skill-select-button select-button">
+      <div id={props.assignable} className="button alert bold horizons-body-font skill-select-button">
         {props.option}
       </div>
     )
@@ -23,7 +23,7 @@ const AspectBonusClickable = props => {
   }
 
   return (
-    <div className="cell auto text-center button-wrapper">
+    <div className="cell auto text-center">
       {selectButton}
     </div>
 

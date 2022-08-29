@@ -448,7 +448,7 @@ const DiceForm = props => {
           <div className="text-center die-form-section">
             <span className="horizons-body-font" > Additionally, click on two of the following <i>Aspects</i> from your <strong> Culture </strong>. Those dice will be <strong>raised one level each.</strong> </span>
             <div className="text-center die-form-section" >  
-              <div className="grid-x grid-margin-x">
+              <div className="grid-x grid-margin-x aspect-bonus-wrapper">
                 {aspectBonuses}
               </div>
             </div>

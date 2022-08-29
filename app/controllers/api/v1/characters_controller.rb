@@ -89,6 +89,9 @@ class Api::V1::CharactersController < ApiController
       if data[:misfortune_id] != "false"
         AssignedMisfortune.create(character: character, misfortune: Misfortune.find(data[:misfortune_id]))
       end
+      render json: {status: 200}
+    else
+      render json: {error: "Unable to create character", status: :not_implemented}
     end
   end
 
