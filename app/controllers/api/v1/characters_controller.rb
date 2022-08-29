@@ -20,75 +20,16 @@ class Api::V1::CharactersController < ApiController
 
   def create
     data = character_params
-    user = User.find(data[:user_id])
-    character = Character.new(
-      user: user,
-      athletic: data[:athletic],
-      athletic_bonus: data[:athletic_bonus],
-      combat: data[:combat],
-      combat_bonus: data[:combat_bonus],
-      convincing: data[:convincing],
-      convincing_bonus: data[:convincing_bonus],
-      culture: Culture.find(data[:culture_id]),
-      current_vitality: 2,
-      experience: 0,
-      expressive: data[:expressive],
-      expressive_bonus: data[:expressive_bonus],
-      graceful: data[:graceful],
-      graceful_bonus: data[:graceful_bonus],
-      grit: data[:grit],
-      grit_bonus: data[:grit_bonus],
-      intuitive: data[:intuitive],
-      intuitive_bonus: data[:intuitive_bonus],
-      motor: data[:motor],
-      motor_bonus: data[:motor_bonus],
-      name: data[:name],
-      passion: Passion.find(data[:passion_id]),
-      perceptive: data[:perceptive],
-      perceptive_bonus: data[:perceptive_bonus],
-      physique: data[:physique],
-      physique_bonus: data[:physique_bonus],
-      reason: data[:reason],
-      reason_bonus: data[:reason_bonus],
-      reflexes: data[:reflexes],
-      reflexes_bonus: data[:reflexes_bonus],
-      resolve: data[:resolve],
-      resolve_bonus: data[:resolve_bonus],
-      role: Role.find(data[:role_id]),
-      rugged: data[:rugged],
-      rugged_bonus: data[:rugged_bonus],
-      social: data[:social],
-      social_bonus: data[:social_bonus],
-      studious: data[:studious],
-      studious_bonus: data[:studious_bonus],
-      subtle: data[:subtle],
-      subtle_bonus: data[:subtle_bonus],
-      tactile: data[:tactile],
-      tactile_bonus: data[:tactile_bonus],
-      wits: data[:wits],
-      wits_bonus: data[:wits_bonus]
-    )
+    character = BuildHelper.assign(data)
 
     if character.save
-      starting_skills = character.role.skills.where(starting: true)
-      starting_skills.each do |skill|
-        AssignedSkill.create(character: character, skill: skill)
-      end
-
-      data[:taken_skills].split(",").each do |skill_id|
-        AssignedSkill.create(character: character, skill: Skill.find(skill_id.to_i))
-      end
-
+      BuildHelper.assign_starting_skills(character)
+      BuildHelper.assign_taken_skills(character, data[:taken_skills])
       AssignedKnack.create(character: character, knack: Knack.find(data[:role_knack]))
       AssignedKnack.create(character: character, knack: Knack.find(data[:culture_knack]))
-      
-      if data[:anxiety_id] != "false"
-        AssignedAnxiety.create(character: character, anxiety: Anxiety.find(data[:anxiety_id]))
-      end
+      BuildHelper.assign_anxiety(character, data[:anxiety_id])
+      BuildHelper.assign_misfortune(character, data[:misfortune_id])
 
-      if data[:misfortune_id] != "false"
-        AssignedMisfortune.create(character: character, misfortune: Misfortune.find(data[:misfortune_id]))
-      end
       render json: {status: 200}
     else
       render json: {error: "Unable to create character", status: :not_implemented}
