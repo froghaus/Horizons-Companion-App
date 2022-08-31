@@ -205,6 +205,7 @@
 
 .landing-page-link {
     font-size: 1.5em;
+    padding-right: 1em;
 }
 
 .char-sheet-element {
@@ -778,4 +779,17 @@ hr {
 .aspect-bonus-wrapper {
     max-width: 30em;
     margin: auto;
+}
+
+.links-wrapper {
+    margin: auto;
+    max-width: 30em;
+    margin-bottom: 3em;
+}
+
+.links-header {
+    padding-top: 2em;
+    margin: auto;
+    max-width: 40em;
+    margin-bottom: 2em;
 }
