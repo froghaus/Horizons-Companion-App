@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_24_144043) do
+ActiveRecord::Schema.define(version: 2022_09_06_144955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,16 @@ ActiveRecord::Schema.define(version: 2022_08_24_144043) do
     t.datetime "updated_at", null: false
     t.index ["character_id"], name: "index_assigned_skills_on_character_id"
     t.index ["skill_id"], name: "index_assigned_skills_on_skill_id"
+  end
+
+  create_table "campaigns", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description", null: false
+    t.string "passcode"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_campaigns_on_user_id"
   end
 
   create_table "characters", force: :cascade do |t|
@@ -131,6 +141,8 @@ ActiveRecord::Schema.define(version: 2022_08_24_144043) do
     t.integer "wealth", default: 0
     t.integer "bonus_to_carry_capacity", default: 0
     t.string "image"
+    t.bigint "campaign_id"
+    t.index ["campaign_id"], name: "index_characters_on_campaign_id"
     t.index ["culture_id"], name: "index_characters_on_culture_id"
     t.index ["passion_id"], name: "index_characters_on_passion_id"
     t.index ["role_id"], name: "index_characters_on_role_id"
@@ -200,6 +212,15 @@ ActiveRecord::Schema.define(version: 2022_08_24_144043) do
     t.text "trigger", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "campaign_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["campaign_id"], name: "index_players_on_campaign_id"
+    t.index ["user_id"], name: "index_players_on_user_id"
   end
 
   create_table "roles", force: :cascade do |t|

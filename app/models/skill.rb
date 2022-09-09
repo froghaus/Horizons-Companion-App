@@ -1,4 +1,6 @@
 class Skill < ApplicationRecord
+	default_scope { order(id: :asc)}
+
 	validates :title, presence: true
 	validates :action_type, presence: true
 	validates :rules_text, presence: true

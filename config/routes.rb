@@ -6,11 +6,13 @@ Rails.application.routes.draw do
   get "/characters", to: "homes#show"
   get "/characters/new", to: "homes#show"
   get "/characters/:id", to: "homes#show"
+  get "/campaigns", to: "homes#show"
 
   get "/links", to: "homes#new"
 
   namespace :api do
     namespace :v1 do
+      resources :campaigns
       resources :characters
     end
   end
