@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment, useState } from "react"
 import CampaignTile from "./CampaignTile"
 
 const CampaignDisplay = (props) => {
@@ -13,18 +13,30 @@ const CampaignDisplay = (props) => {
 				<div className="horizons-body-font warning-text"> Loading... </div>
 			)
 		} else {
-			campaignTiles = (
-				<div className="horizons-body-font warning-text"> You haven't started any campaigns yet! </div>
-			)
+			if (props.type == "owner" ) {
+				campaignTiles = (
+					<div className="horizons-body-font warning-text"> You haven't started any campaigns yet! </div>
+				)
+			} else {
+				campaignTiles = (
+					<div className="horizons-body-font warning-text"> You aren't playing in any campaigns yet! </div>
+				)
+			}
 		}
 	}
 
 	return (
-		<div className="grid-container">
-			<div className="grid-x grid-margin-x">
-				{campaignTiles}
+		<Fragment>
+			<div className="campaign-section-header" >
+				<h3 className="horizons-body-font campaign-section-header-text" > {props.type}</h3>
+				<hr className="row-splitter" />
 			</div>
-		</div>
+			<div className="grid-container">
+				<div className="grid-x grid-margin-x">
+					{campaignTiles}
+				</div>
+			</div>
+		</Fragment>
 	)
 }
 

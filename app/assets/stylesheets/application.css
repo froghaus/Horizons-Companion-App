@@ -821,3 +821,12 @@ hr {
     max-width: 40em;
     margin-bottom: 2em;
 }
+
+.campaign-section-header {
+    text-align: left;
+    margin-left: 1.5em;
+}
+
+.campaign-section-header-text {
+    margin-left: 0.75em;
+}
