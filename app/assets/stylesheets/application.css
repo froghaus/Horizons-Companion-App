@@ -224,6 +224,10 @@
     color: #6c8f4f;
 }
 
+.inactive {
+    color: #494848;
+}
+
 .landing-page-link {
     font-size: 1.5em;
     padding: 10px;
@@ -820,4 +824,14 @@ hr {
     margin: auto;
     max-width: 40em;
     margin-bottom: 2em;
+}
+
+.campaign-section-header {
+    text-align: left;
+    margin-top: 1em;
+    margin-left: 1.5em;
+}
+
+.campaign-section-header-text {
+    margin-left: 0.75em;
 }

@@ -10,7 +10,10 @@ import CampaignDisplay from "./CampaignDisplay"
 library.add(faPlus)
 
 const CampaignLibrary = props => {
-  const [campaigns, setCampaigns] = useState([])
+  const [campaigns, setCampaigns] = useState({
+		owner: [],
+		player: []
+	})
 	const [loading, setLoading] = useState(true)
 	
 	useEffect(() => {
@@ -42,7 +45,8 @@ const CampaignLibrary = props => {
 					&nbsp; Start a Campaign 
 				</Link>
 			</div>
-			<CampaignDisplay campaigns={campaigns} loading={loading} />
+			<CampaignDisplay campaigns={campaigns.owner} loading={loading} type="Owner" />
+			<CampaignDisplay campaigns={campaigns.player} loading={loading} type="Player" />
 		</div>
 	)
 }
