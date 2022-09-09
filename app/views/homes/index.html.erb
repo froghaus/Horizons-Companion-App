@@ -7,32 +7,51 @@
 </div>
 
 <div class="grid-container" >
-  <div class="landing-page-tile-wrapper grid-x grid-margin-x" >
+  <div class="landing-page-tile-wrapper" >
    
-    <div class="landing-page-alert cell small-12" >
+    <div class="landing-page-alert text-center landing-page-section" >
       <h3 class="horizons-title-font" > Hiring Look Here! </h3>
-      <p class="horizons-body-font" > Thank you so much for taking the time to look at my app! To view some premade characters, please log in using the credentials below: </p>
+      <p class="horizons-body-font text-left" > Thank you so much for taking the time to look at my app! To view some premade character sheets, please log in using the credentials below, then navigate to the character roster linked below that. </p>
       <span class="horizons-body-font" > <strong> Email: </strong> tester@test.com <br/> </span>
       <span class="horizons-body-font" > <strong> Password: </strong> password <br/> </span>
     </div>
 
-    <div class="landing-page-tile cell small-12 medium-shrink" >
-      <ul>
-        <li > 
-          <%= link_to "New Character", characters_new_path, class: "horizons-body-font landing-page-link" %>
-        </li>
-        <li>
-          <%= link_to "Character Roster", characters_path, class: "horizons-body-font landing-page-link" %>
-        </li>
-        <li > 
-          <%= link_to "Resource Links", links_path, class: "horizons-body-font landing-page-link" %>
-        </li>
-      </ul>
+
+    <div class="grid-x grid-margin-x landing-page-section" >
+      <div class="cell auto text-center landing-page-link" > 
+        <a href="/characters" >
+          <div class="landing-page-link-wrapper" >
+            <i class="fa-solid fa-users-between-lines large-icon"></i> <br/>
+            <span class="horizons-body-font" > Character Roster </span>
+          </div>
+        </a> 
+      </div>
+
+      <div class="cell auto text-center landing-page-link" > 
+        <a href="/campaigns" >
+          <div class="landing-page-link-wrapper" >
+            <i class="fa-solid fa-person-hiking large-icon"></i> <br/>
+            <span class="horizons-body-font" > Campaign Manager </span>
+          </div>
+        </a> 
+      </div>
+
+      <div class="cell auto text-center landing-page-link" > 
+        <a href="/links" >
+          <div class="landing-page-link-wrapper" >
+            <i class="fa-solid fa-book-open-reader large-icon"></i> <br/>
+            <span class="horizons-body-font" > Rules Resources </span>
+          </div>
+        </a> 
+      </div>
     </div>
 
-    <div class="landing-page-tile cell small-12 medium-auto" >
-      <h3 class="horizons-title-font" > About Horizons </h3>
-      <p class="horizons-body-font" > A TRPG system where players use different dice to represent the the strengths and weaknesses of their characters, gain experience by grappling with character flaws, and gamble with resources to push their limits. </p>
+    <div class="landing-page-section" >
+      <div class="buffer" >
+        <h3 class="horizons-title-font" > About Horizons </h3>
+        <p class="horizons-body-font" > A TRPG system where players use different dice to represent the the strengths and weaknesses of their characters, gain experience by grappling with character flaws, and gamble with resources to push their limits. Features a collaborative rolling system and modular character building, allowing both players and GM to focus on how the character is acting rather than what they're rolling. </p>
+        <p class="horizons-body-font" > &nbsp; &nbsp; <i> Horizons </i> is currently still in Beta testing, and will be updated as playtests yield feedback. Long term goal is to get the game to a state I can feel truly proud of, then to develop a GM's guide to release for broader public testing. If the game is received well, there is potential for some sort of crowdfunding campaign to fund a better produced version of the rules with visuals. That's only hypothetical, of course, but my intention is to always keep the character creation elements free. </p>
+      </div>
     </div>
 
   </div>
