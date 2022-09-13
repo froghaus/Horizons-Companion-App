@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "/characters/new", to: "homes#show"
   get "/characters/:id", to: "homes#show"
   get "/campaigns", to: "homes#show"
+  get "/campaigns/:id", to: "homes#show"
 
   get "/links", to: "homes#new"
 
