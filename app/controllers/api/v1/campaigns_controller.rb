@@ -5,7 +5,7 @@ class Api::V1::CampaignsController < ApiController
 	end
 
 	def show
-		render json: Campaign.find(params[:id])
+		render json: {campaign: Campaign.find(params[:id]), current_user: current_user}
 	end
 
 end
