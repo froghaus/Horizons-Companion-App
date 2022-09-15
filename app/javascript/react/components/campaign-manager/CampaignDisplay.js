@@ -4,7 +4,14 @@ import CampaignTile from "./CampaignTile"
 const CampaignDisplay = (props) => {
 
 	let campaignTiles = props.campaigns.map(campaign => {
- 		return ( <CampaignTile key={campaign.id} id={campaign.id} title={campaign.title} description={campaign.description} />)
+ 		return ( 
+			<CampaignTile 
+				key={campaign.id}
+				id={campaign.id}
+				title={campaign.title}
+				description={campaign.description} 
+			/>
+		)
 	})
 
 	if (!campaignTiles.length) {
