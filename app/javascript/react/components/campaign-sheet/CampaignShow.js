@@ -9,12 +9,12 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"
 library.add(faArrowLeft)
 
 const CampaignShow = props => {
-    const [campaign, setCampaign] = useState({})
-		const [currentUser, setCurrentUser] = useState({})
-		const [loading, setLoading] = useState(true)
-		const [error, setError] = useState(false)
+	const [campaign, setCampaign] = useState({})
+	const [currentUser, setCurrentUser] = useState({})
+	const [loading, setLoading] = useState(true)
+	const [error, setError] = useState(false)
 
-    const fetchCampaign = async () => {
+	const fetchCampaign = async () => {
 		try {
 			const response = await fetch(`/api/v1/campaigns/${props.match.params.id}`)
 			if (!response.ok) {
@@ -30,6 +30,25 @@ const CampaignShow = props => {
 			console.error(`Error in fetch: ${error.message}`)
 			setLoading(false)
 			setError(true)
+		}
+	}
+
+	const updateCampaign = async (payload) => {
+		try {
+			const response = await fetch(`/api/v1/campaigns/${props.match.params.id}`, {
+				credentials: "same-origin",
+				method: "PATCH",
+				body: payload
+			})
+			if (!response.ok) {
+				const errorMessage = `${response.status} (${response.statusText})`
+				const error = new Error (errorMessage)
+				throw(error)
+			}
+			const campaignObject = await response.json()
+			setCampaign(campaignObject)
+		} catch (error) {
+			console.error(`Error in fetch: ${error.message}`)
 		}
 	}
 
@@ -51,6 +70,7 @@ const CampaignShow = props => {
 		if (campaign.user_id === currentUser.id) {
 			owner = true
 		}
+
 		campaignSheet = (
 			<div>
 				<h2 className="horizons-title-font campaign-section-header-text" > {campaign.title} </h2>
@@ -58,6 +78,7 @@ const CampaignShow = props => {
 					campaign={campaign}
 					currentUser={currentUser}
 					owner={owner}
+					updateCampaign={updateCampaign}
 				/>
 			</div>
 		)
@@ -66,7 +87,8 @@ const CampaignShow = props => {
 	return(
 		<Fragment>
 			<Link to={"/campaigns"} className="nav-arrow-text edit-toggle horizons-body-font" > 
-				<FontAwesomeIcon className="nav-arrow" icon="fa-solid fa-arrow-left" /> &nbsp; Back to Your Campaigns
+				<FontAwesomeIcon className="nav-arrow" icon="fa-solid fa-arrow-left" /> 
+				&nbsp; Back to Your Campaigns
 			</Link>
 			{campaignSheet}
 		</Fragment>

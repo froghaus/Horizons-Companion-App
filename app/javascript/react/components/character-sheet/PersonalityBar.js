@@ -165,7 +165,7 @@ const PersonalityBar = props => {
 		let editable
 		if (props.current_user === props.character.user_id) {
 			editable = (
-				<p onClick={toggleBio} className="cell small-1 text-center horizons-body-font edit-toggle"> edit </p>
+				<p onClick={toggleBio} className="cell shrink text-center horizons-body-font edit-toggle"> edit </p>
 			)
 		}
 
@@ -176,8 +176,12 @@ const PersonalityBar = props => {
 					{editable}
 				</div>
 				<hr/>
-				<div className="about-body horizons-body-font" >
-					{props.text_info.bio} 
+				<div className="about-body " >
+					<pre>
+						<span className="horizons-body-font">
+							{props.text_info.bio} 
+						</span>
+					</pre>
 				</div>
 			</div>
 		)
@@ -223,9 +227,13 @@ const PersonalityBar = props => {
 					{editable}
 				</div>
 				<hr/>
-				<div className="about-body horizons-body-font" >
-					{props.text_info.description} 
-				</div>
+					<div className="about-body " >
+						<pre>
+							<span className="horizons-body-font">
+								{props.text_info.description} 
+							</span>
+						</pre>
+					</div>
 			</div>
 		)
 	}
