@@ -1,6 +1,4 @@
-# README
-
-Horizons: Companion App
+# Horizons: Companion App: 
 A companion app for the in-development Horizons TRPG system, with features to facilitate character creation and character sheet storage.
 
 * Ruby version: 2.7.3
