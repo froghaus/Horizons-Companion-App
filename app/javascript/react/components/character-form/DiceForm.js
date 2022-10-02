@@ -461,7 +461,7 @@ const DiceForm = props => {
             <span className="horizons-body-font"> Your <i>Reaction</i> dice represent your character's ability to respond to situations by holding fast, reacting quickly, or maintaining control. Assign dice however you like from the array below. Additionally, because your character is in <strong>the {selectedRole.title}</strong> role, {reactionBonus} will be <strong>raised one level.</strong> </span>
           </div>
 
-          <div className="horizons-body-font dice-array"> {`[ d8, d6, d6 ]`} </div>
+          <div className="horizons-body-font dice-array"> {`[ d8, d8, d6 ]`} </div>
 
           <div className="grid-x grid-margin-x reaction-dice-selection">
             <div className="cell auto text-center">  
